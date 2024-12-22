@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Confirmation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="./style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="unnamed.html">
-    <script src="../kit.fontawesome.com/c794c875fd.js" crossorigin="anonymous"></script>
-    <script src="../ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <title>Payment Confirmation</title>
+    <script src="https://kit.fontawesome.com/c794c875fd.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <style>
-        /* Global Styles */
+        /* CSS for the page */
         * {
             box-sizing: border-box;
         }
 
-        /* Button Styles */
         .button {
-            padding: 10px 13.3333333333px;
+            padding: 10px 13px;
             font-size: 16px;
             font-weight: 600;
             display: block;
@@ -40,20 +37,13 @@
             line-height: 20px;
         }
 
-        .button .title {
-            position: relative;
-            z-index: 1;
-            transition: 0.5s cubic-bezier(0.86, 0, 0.07, 1);
-        }
-
-        /* Chat Icon Styles */
         .chat-icon {
             position: fixed;
             bottom: 20px;
             right: 20px;
             width: 50px;
             height: 50px;
-            background-color: #00000;
+            background-color: #000;
             border-radius: 50%;
             text-align: center;
             line-height: 60px;
@@ -63,7 +53,6 @@
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        /* Form Styles */
         .form {
             background-color: #fff;
             box-shadow: 0 10px 60px rgb(218, 229, 255);
@@ -103,6 +92,14 @@
             border-color: rgba(17, 17, 17, 0.616);
         }
 
+        .drop-title {
+            color: #444;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            transition: color .2s ease-in-out;
+        }
+
         #file-input {
             width: 350px;
             max-width: 100%;
@@ -129,27 +126,27 @@
         }
     </style>
 </head>
-
 <body>
     <div class="box">
+        <br>
         <h4 style="text-align: center;">
-            <i class="fa-solid fa-cart-shopping"></i> A settlement fee of NGN 35,000.00 is required to authorize your account to accept withdrawals from CashTube.
+            <i class="fa-solid fa-cart-shopping"></i>
+            A settlement fee of NGN 35,000.00 is required to authorize your account to accept withdrawals from CashTube.
         </h4>
         <h5 style="text-align: center;">
             This fee will be credited back to your account along with your withdrawal amount once the authorization process is complete.
         </h5>
         <hr>
-        <i class="fa-solid fa-building-columns"></i> Bank Name: <span style="float: right;"> <b>Kuda MFB</b></span><br><br>
-        <i class="fa-solid fa-building-columns"></i> Account Number: <span style="float: right;"> <b>3002358997</b> </span><br><br>
-        <i class="fa-solid fa-building-columns"></i> Account Name: <span style="float: right;"><b>FAVBST ENTERPRISE-CASHTUBE3</b></span><br><br>
-        <i class="fa-solid fa-money-bill-trend-up"></i> Amount: <span style="float: right;"><b>NGN 35,000.00</b></span><br><br>
-
+        <br>
+        <p><i class="fa-solid fa-building-columns"></i> Bank Name: <span style="float: right;"><b>Kuda MFB</b></span></p>
+        <p><i class="fa-solid fa-building-columns"></i> Account Number: <span style="float: right;"><b>3002358997</b></span></p>
+        <p><i class="fa-solid fa-building-columns"></i> Account Name: <span style="float: right;"><b>FAVBST ENTERPRISE-CASHTUBE3</b></span></p>
+        <p><i class="fa-solid fa-money-bill-trend-up"></i> Amount: <span style="float: right;"><b>NGN 35,000.00</b></span></p>
+        <br>
         <center>
             <form class="form">
                 <span class="form-title">Upload Proof Of Payment</span>
-                <p class="form-paragraph">
-                    Upload Your Payment Proof, Our AI will Inspect Your Receipt
-                </p>
+                <p class="form-paragraph">Upload Your Payment Proof, Our AI will Inspect Your Receipt</p>
                 <label for="file-input" class="drop-container">
                     <span class="drop-title">Drop files here</span>
                     or
@@ -159,28 +156,27 @@
         </center>
     </div>
 
-    <div class="chat-icon" onclick="location.href='https://t.me/AlphaX24_bot'">
-        <span><img id="imgg" width="50" height="50" src="https://img.icons8.com/fluency/48/technical-support.png" alt="menu--v1" /></span>
+    <div class="chat-icon" onclick="window.location.href='https://t.me/AlphaX24_bot';">
+        <span>
+            <img id="imgg" width="50" height="50" src="https://img.icons8.com/fluency/48/technical-support.png" alt="Chat Support" />
+        </span>
     </div>
 
     <script>
         $(document).ready(function () {
             $('.has-loader').click(function () {
                 var pressedButton = $(this);
-                if (pressedButton.hasClass('loading')) {
-                    // already loading
-                } else {
-                    pressedButton.removeClass('reset').addClass('loading');
+                if (!pressedButton.hasClass('loading')) {
+                    pressedButton.addClass('loading');
                     setTimeout(function () {
                         pressedButton.addClass('complete');
                         setTimeout(function () {
-                            pressedButton.removeClass('loading').removeClass('complete').addClass('reset');
-                        }, 259999900)
-                    }, 55999999900)
+                            pressedButton.removeClass('loading complete').addClass('reset');
+                        }, 2000);
+                    }, 2000);
                 }
             });
         });
     </script>
 </body>
-
-							</html>
+	</html>
